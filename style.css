@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Kotta+One&family=Kulim+Park:wght@200&display=swap');
+
+
+* {
+    margin:0;
+    padding:0;
+}
+
+html {
+    background: url(./Images/background_image.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+.headers {
+    font-family: 'Kotta One', serif;
+    line-height:3.5rem;
+}
+
+h1 {
+    font-size: 3rem;
+    color:white;
+    display:flex;
+    justify-content:center;
+    margin-top:1rem;
+}
+
+h2{
+    display:flex;
+    justify-content:center;
+}

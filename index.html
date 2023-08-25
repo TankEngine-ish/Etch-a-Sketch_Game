@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etch-a-Sketch - The Game</title>
+    <title>Etch-a-Sketch – The Game</title>
     <link rel="stylesheet" href="style.css"> 
     <link rel="icon" href="./Images/favi_2.png">
 </head>
@@ -13,8 +13,82 @@
 <body>
     <div class = "headers">
         <h1>Etch-a-Sketch</h1>
-        <h2>The Drawing Game</h2>
+        <h2>Hold your left mouse button over the empty grid to start drawing</h3>
     </div>
+
+    <div id = "container"></div>
+
+    <div class ="buttons">
+
+        <div class ="button_one">
+            <fieldset class="sizeButton">
+                <legend class="textSize font-effect-outline">Grid Size</legend>
+                <div class="textSizePanel font-effect-outline">16 x 16</div>
+                <input type="range" id="range" min="2" max="100" value="16" step="1">
+            </fieldset>
+                                <!-- input type ="range" creates the slider -->
+        </div>
+         
+        <div class ="button_two">
+            <fieldset class="colorButton">
+                <legend class="textColorPanel font-effect-outline">Color</legend>
+                <input type="color" id="color" value="#000000">
+                                <!-- input type ="color" provides me with a user interface element that lets me specify a color -->
+            </fieldset>
+        </div>
+
+
+        <div class="button_eraser">
+            
+         <button id="eraser">Eraser</button>
+         
+        
+        </div>
+
+        <div class="button_clear">
+            <button id="total_erase">Nuke-a-sketch</button>
+
+        </div>
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+   
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+    <div class = "settings">
+
+
     
 
 
@@ -33,14 +107,7 @@
 
 
 
-
-
-
-
-
-
-
-
+        <script src="index.js" defer></script>
 
 </body>
 </html>

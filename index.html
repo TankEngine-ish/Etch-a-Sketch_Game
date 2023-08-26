@@ -22,32 +22,36 @@
 
         <div class ="button_one">
             <fieldset class="sizeButton">
-                <legend class="textSize font-effect-outline">Grid Size</legend>
-                <div class="textSizePanel font-effect-outline">16 x 16</div>
+                <legend class="textPanel">Grid Size</legend>
+        <div class="textInsidePanel">16 x 16</div>
                 <input type="range" id="range" min="2" max="100" value="16" step="1">
-            </fieldset>
                                 <!-- input type ="range" creates the slider -->
+            </fieldset>                          
         </div>
          
         <div class ="button_two">
             <fieldset class="colorButton">
-                <legend class="textColorPanel font-effect-outline">Color</legend>
+                <legend class="textPanel">Color</legend>
                 <input type="color" id="color" value="#000000">
                                 <!-- input type ="color" provides me with a user interface element that lets me specify a color -->
             </fieldset>
         </div>
 
+        <div class ="button_three">
+            <fieldset class="rainbowButton">
+                <legend class="textPanel">GO RAINBOW</legend>    
+        <div class="check">
+            <input type="checkbox" id="switch"><label for="switch">Toggle</label>
+                </label>
+            </fieldset>
+
 
         <div class="button_eraser">
-            
-         <button id="eraser">Eraser</button>
-         
-        
+                <button id="eraser">Eraser</button>     
         </div>
 
         <div class="button_clear">
             <button id="total_erase">Nuke-a-sketch</button>
-
         </div>
 
 
@@ -57,54 +61,11 @@
 
 
 
-     
-
-
-
-
-
-
-
-
-    </div>
-
-
-
-   
-
-
-
-
-
 
         
 
 
-
-
-
-
-
-
-    <div class = "settings">
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
 
 
         <script src="index.js" defer></script>

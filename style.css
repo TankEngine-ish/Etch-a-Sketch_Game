@@ -64,10 +64,72 @@ h2{
     color:black;
   }
 
+  .rainbowButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:150px;
+    height:80px;
+    padding:15px;
+    border: 3px groove rgb(255, 255, 255);
+    border-radius: 10px;
+    font-size: 1.5rem;
+    color:black;
+    font-size:23px;
+  }
+
   .buttons {
     display: grid;
-    grid-gap:50px;
- 
+    grid-gap:20px;
   }
+
+
+  input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+  label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 100px;
+    height: 40px;
+    background: grey;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+  }
+  
+  label:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    width: 40px;
+    height: 29px;
+    background: #fff;
+    border-radius: 40px;
+    transition: 0.3s;
+  }
+  
+  input:checked + label {
+    background: #1ce627;
+  }
+  
+  input:checked + label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+  
+  label:active:after {
+    width: 130px;
+  }
+
+#eraser {
+    margin-bottom:50px;
+    margin-top:50px;
+}
 
 

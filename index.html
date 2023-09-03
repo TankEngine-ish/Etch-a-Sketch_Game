@@ -23,7 +23,9 @@
         <div class ="button_one">
             <fieldset class="sizeButton">
                 <legend class="textPanel">Grid Size</legend>
-        <div class="textInsidePanel">16 x 16</div>
+        <div id ="textInsidePanel">16 x 16</div>   
+        <!-- added id to the div so i can specifically select the text inside panel inside JS -->
+        
                 <input type="range" id="range" min="2" max="100" value="16" step="1">
                                 <!-- input type ="range" creates the slider -->
             </fieldset>                          
@@ -41,8 +43,10 @@
             <fieldset class="rainbowButton">
                 <legend class="textPanel">Rainbow Style</legend>    
         <div class="check">
-            <input type="checkbox" id="switch"><label for="switch">Toggle</label>
-                </label>
+            <input type="checkbox" id="myCheckbox">
+            <label for="myCheckbox" class="switch">
+              <!-- <span class="slider"></span> -->
+            </label>
             </fieldset>
 
 
@@ -53,6 +57,8 @@
         <div class="button_clear">
             <button id="total_erase">Nuke-a-sketch</button>
         </div>
+
+        <div id="grid" class="grid"></div>
 
 
 

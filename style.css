@@ -4,6 +4,7 @@
 * {
     margin:0;
     padding:0;
+   
 }
 
 html {
@@ -45,9 +46,18 @@ h2{
     color:white;
     font-size:2rem;
     margin-top:30px;
+    
 }
 
 /* removed webkit-text-stroke as it was making the outline of the h1 and h2 ridiculously thick on larger screens */
+
+
+#container {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:100px;
+}
 
 .sizeButton{
     display: flex;
@@ -61,7 +71,7 @@ h2{
     border-radius: 10px;
     font-size: 1.5rem;
     color:rgb(255, 255, 255);
-    margin-top:100px;
+    margin-top:60px;
   }
 
   .colorButton {
@@ -94,8 +104,10 @@ h2{
   }
 
   .buttons {
-    display: grid;
-    grid-gap:20px;
+    display: flex;
+    flex-direction:column;
+    gap:20px;
+    
   }
 
 
@@ -152,6 +164,7 @@ h2{
     cursor: pointer;
     box-shadow: 0 0 0 #ccc;
     transition: box-shadow 300ms, color 300ms;
+    border-style: solid;
         
 }   
  #eraser:hover {
@@ -271,20 +284,19 @@ h2{
 }
 
 
-#grid {
+.grid {
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(16, 1fr);
-  gap: 1px;
+  width: 600px;
+  height: 600px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-left:400px;
+  margin-top:50px;
+  border:10px;
+  border-color: rgb(0, 0, 0);
+  border-style:solid;
+  user-select: none;
+  background-color:white;
+  display:flex;
+  flex-direction:column;
 }
 
-.grid-cell {
-  width: 16px;
-  height: 16px;
-  background-color: white;
-  border: 1px solid #ccc;
-}
-
-.grid-cell:hover {
-  background-color: black;
-}

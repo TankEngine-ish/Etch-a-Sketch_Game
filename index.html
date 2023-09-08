@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etch-a-Sketch – The Game</title>
+    <title>Etch-a-Sketch - The Game</title>
     <link rel="stylesheet" href="style.css"> 
     <link rel="icon" href="./Images/favi_2.png">
 </head>
@@ -17,57 +17,58 @@
     </div>
 
 <div id = "container">
+    <div class ="grid"></div>
 
     <div class ="buttons">
-
-        <div class ="button_one">
-            <fieldset class="sizeButton">
-                <legend class="textPanel">Grid Size</legend>
-        <div id ="textInsidePanel">16 x 16</div>   
-        <!-- added id to the div so i can specifically select the text inside panel inside JS -->
         
-                <input type="range" id="range" min="2" max="100" value="16" step="1">
+            <fieldset class="leftSide sizeButton">
+                <legend class="textPanel">Grid Size</legend>
+                    <div class ="textInsidePanel">16 x 16</div>   
+        <!-- added id to the div so i can specifically select the text inside panel inside JS -->
+                    <input type="range" id="range" min="2" max="64" value="16" step="2">
                                 <!-- input type ="range" creates the slider -->
-            </fieldset>                          
-        </div>
+            </fieldset>                         
          
-        <div class ="button_two">
-            <fieldset class="colorButton">
+       
+            <fieldset class="leftSide colorButton">
                 <legend class="textPanel">Color</legend>
-                <input type="color" id="color" value="#000000">
+                <input type="color" class = "color-picker" id="color" value="#000000">
                                 <!-- input type ="color" provides me with a user interface element that lets me specify a color -->
             </fieldset>
-        </div>
+        
 
-        <div class ="button_three">
-            <fieldset class="rainbowButton">
-                <legend class="textPanel">Rainbow Style</legend>    
-        <div class="check">
-            <input type="checkbox" id="myCheckbox">
-            <label for="myCheckbox" class="switch">
-              <!-- <span class="slider"></span> -->
-            </label>
+            <fieldset class="leftSide">
+                <legend class="textPanel">Grid Lines</legend>    
+            <div class="check">
+                <input type="checkbox" id="myCheckbox"><label for="myCheckbox"></label>
+            </div>
             </fieldset>
-        </div>
-
-
+            
         <div class="button_eraser">
-                <button id="eraser">Eraser</button>     
+            <button id="eraser">Eraser</button>     
         </div>
 
+
+            <button id ="rainbow">Rainbow Mode!</button>
+    
+
+        
         <div class="button_clear">
             <button id="total_erase">Nuke-a-sketch</button>
         </div>
+        
     </div>
-
-        <div id="grid" class="grid"></div>
-
+    
+       
         
 
 </div>
 
 
         <script src="index.js" defer></script>
+
+
+
 
 </body>
 </html>

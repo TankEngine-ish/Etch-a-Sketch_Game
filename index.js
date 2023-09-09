@@ -8,12 +8,13 @@
 // Later on I need to have in mind: deleting squares on click and deleting the whole grid.
 
 
+const rangeSlider = document.getElementById(input [type ="range"] )
+const colorButton = document.getElementById('color')
+const gridSwitch = document.getElementById('myCheckbox')
+const eraserButton = document.getElementById('eraser')
+const rainbowButton = document.getElementById('rainbow')
+const nukeButton = document.getElementById('total_erase')
 
-const color_button = document.getElementById('color')
-const rainbow_switch = document.getElementById('myCheckbox')
-const eraser_button = document.getElementById('eraser')
-const nuke_button = document.getElementById('total_erase')
-const grid_container = document.querySelector('.grid-container')
 const actual_grid = document.querySelector('.grid')
 
 

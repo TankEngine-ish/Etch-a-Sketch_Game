@@ -17,30 +17,30 @@
     </div>
 
 <div id = "container">
-    <div class ="grid"></div>
+    <div class ="gridContainer"></div>
 
     <div class ="buttons">
         
-            <fieldset class="leftSide sizeButton">
-                <legend class="textPanel">Grid Size</legend>
-                    <div class ="textInsidePanel">16 x 16</div>   
-        <!-- added id to the div so i can specifically select the text inside panel inside JS -->
+            <fieldset class="rightSide sizeButton">
+                <legend class="textPanel"></legend>
+                
+                    <!-- <div class ="textInsidePanel">16 x 16</div>    -->
                     <input type="range" id="range" min="2" max="64" value="16" step="2">
                                 <!-- input type ="range" creates the slider -->
             </fieldset>                         
          
        
-            <fieldset class="leftSide colorButton">
+            <fieldset class="rightSide colorButton">
                 <legend class="textPanel">Color</legend>
                 <input type="color" class = "color-picker" id="color" value="#000000">
                                 <!-- input type ="color" provides me with a user interface element that lets me specify a color -->
             </fieldset>
         
 
-            <fieldset class="leftSide">
+            <fieldset class="rightSide">
                 <legend class="textPanel">Grid Lines</legend>    
             <div class="check">
-                <input type="checkbox" id="myCheckbox"><label for="myCheckbox"></label>
+                <input type="checkbox" id="gridLines"><label for="gridLines"></label>
             </div>
             </fieldset>
             
@@ -54,7 +54,7 @@
 
         
         <div class="button_clear">
-            <button id="total_erase">Nuke-a-sketch</button>
+            <button id="total_erase">NUKE-A-SKETCH</button>
         </div>
         
     </div>

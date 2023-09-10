@@ -8,15 +8,148 @@
 // Later on I need to have in mind: deleting squares on click and deleting the whole grid.
 
 
-const rangeSlider = document.getElementById(input [type ="range"] )
-const colorButton = document.getElementById('color')
-const gridSwitch = document.getElementById('myCheckbox')
-const eraserButton = document.getElementById('eraser')
-const rainbowButton = document.getElementById('rainbow')
-const nukeButton = document.getElementById('total_erase')
+const rangeSlider = document.querySelector ('#range');
+const gridContainer= document.querySelector('gridContainer');
 
-const actual_grid = document.querySelector('.grid')
+const fieldset = document.querySelector('.rightSide sizeButton');
+const legend = fieldset.querySelector('textPanel');
 
+const colorButton = document.getElementById('color');
+const rainbowButton = document.getElementById('rainbow');
+
+const toggleGrid = document.getElementById('gridLines');
+
+const eraserButton = document.getElementById('eraser');
+const nukeButton = document.getElementById('total_erase');
+
+let gridSize = document.querySelector('#range').value
+let cellColor = document.getElementById('color').value
+
+
+let rainbowPen = false;
+let Eraser = false;
+let Grid = false;
+
+let mouseDown = false;
+gridContainer.onmousedown = () =>mouseDown = true;
+document.onmouseup = () => mouseDown = false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// setGrid ()
+// let divSquares = document.querySelectorAll('.square')
+
+// function setGrid () {
+//     createGrid(gridSize)
+//     displayGridSize()
+
+
+//     colorButton.classList.add('active')
+//     nukeButton.addEventListener('click', clearGrid)
+//     gridSwitch.addEventListener('change', toggleGridLines)
+//     rangeSlider.addEventListener('input', displayGridSize)
+//     rangeSlider.addEventListener('change', changeGridSize)
+// }
+
+
+// function createGrid(size) {
+//     document.documentElement.style.setProperty('--grid-size', size)
+
+//     grid.addEventLIstener('mousedown', function (e) {
+//         e.preventDefault()
+// })
+
+
+
+// for (let i = 0; i < size * size; i++) {
+//     const square = document.createElement('div')
+//     square.classList.add('square')
+//     grid.appendChild(square)
+
+//     square.addEventListener('mouseover', changeColor)
+//     square.addEventListener('mousedown', changeColor)
+
+//     if (gridLines) {
+//         square.classList.add('grid-lines')
+//     }
+// }
+// }
+
+
+// function changeGridSize() {
+//     for (let square of divSquares) {
+//         square.remove()
+//     }
+//     gridSize = rangeSlider.value
+//     createGrid(gridSize)
+//     divSquares = document.querySelectorAll('.square')
+// }
+
+// function displayGridSize() {
+//     const gridSizeDisplay = document.querySelector('input [type ="range"]')
+//     gridSizeDisplay.textContent = `Grid Size: ${rangeSlider.value} x ${rangeSlider.value}`
+// }
 
 
 

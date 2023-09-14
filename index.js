@@ -9,36 +9,211 @@
 
 
 const rangeSlider = document.querySelector ('#range');
-const gridContainer= document.querySelector('gridContainer');
-
-const fieldset = document.querySelector('.rightSide sizeButton');
-const legend = fieldset.querySelector('textPanel');
+const gridContainer = document.querySelector('.gridContainer');
 
 const colorButton = document.getElementById('color');
 const rainbowButton = document.getElementById('rainbow');
 
-const toggleGrid = document.getElementById('gridLines');
+const toggleGrid = document.querySelector('input[type=checkbox]');
 
 const eraserButton = document.getElementById('eraser');
 const nukeButton = document.getElementById('total_erase');
 
-let gridSize = document.querySelector('#range').value
-let cellColor = document.getElementById('color').value
+const textSizePanel = document.querySelector('.textSizePanel');
+
+gridContainer.addEventListener('mousedown', () => {      
+    colorTrigger = true;  
+});   
+
+gridContainer.addEventListener('mouseup', () => {      
+    colorTrigger = false;  
+});
 
 
-let rainbowPen = false;
-let Eraser = false;
-let Grid = false;
+function draw(color){                                           //draw function with current color
+    let coloredRowElements = document.querySelectorAll('.row'); //Create list of grid elements
+    
+    for (let coloredRowElement of coloredRowElements){
+        
+        coloredRowElement.addEventListener('mousedown', () => {
+            coloredRowElement.style.backgroundColor = color;             
+        })  
+        
+        coloredRowElement.addEventListener('mousemove', () => {
+            if (colorTrigger)
+            coloredRowElement.style.backgroundColor = color;                 
+        })
+    }            
+}
 
-let mouseDown = false;
-gridContainer.onmousedown = () =>mouseDown = true;
-document.onmouseup = () => mouseDown = false;
+
+function drawGrid(flag){                                         //switch grid function  
+    let rowElements = document.querySelectorAll('.row'); //Create list of grid elements
+    
+    for (let rowElement of rowElements){
+            rowElement.style.borderWidth = flag;                       
+    }            
+}
+
+let size;
+let sizePrev;
+
+function drawSquare(){                  // draw grid function(column-direction flexbox of row-direction flexboxes) 
+    size = Number(document.getElementById("range").value);
+    sizePrev = size;                    // Value for field cleaner
+    
+    for (let j=1; j <= size; j++){
+        const column = document.createElement('div');
+        column.classList.add('column');
+        gridContainer.appendChild(column);   
+        
+        for (let i=1; i <= size ; i++) {
+            const rowElement = document.createElement('div');
+            rowElement.classList.toggle('row');  
+            column.appendChild(rowElement);
+        }
+    }
+    colorButton = document.getElementById("color").value;
+    draw(color);
+}
+
+// drawSquare() 
+
+
+let flag;
+
+toggleGrid.addEventListener('change', function (e) {            //switch grid button
+    localStorage.status = e.target.checked ? flag = "0.1px" : flag = "0";
+    drawGrid(flag);
+  });
+
+function clearField(){
+    for (let j=1; j <= sizePrev; j++){
+        const column = document.querySelector('.column')
+        gridContainer.removeChild(column);
+    }
+}
+
+nukeButton.addEventListener('click', () => {             //field clear button
+    clearField();
+    drawSquare();
+    drawGrid(flag);    
+});  
+
+
+
+
+rangeSlider.addEventListener('change', () => {              //change grid size range
+    let sizeVal = document.getElementById("range").value;
+    textSizePanel.textContent = sizeVal + '  x  ' + sizeVal;
+    size = Number(document.getElementById("range").value);
+    clearField();
+    drawSquare();
+    drawGrid(flag);   
+});
+
+
+
+
+
+colorButton.addEventListener('change', () => {    //change color picker
+    color = document.getElementById('color').value;     
+    draw(color);
+    gridContainer.style.boxShadow =`0 0 30px ${color}`;
+    gridContainer.style.borderColor = color;  
+} )
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let rainbowPen = false;
+// let eraser = false;
+// let grid = false;
+
+// let mouseDown = false;
+// gridContainer.onmousedown = () =>mouseDown = true;
+// document.onmouseup = () => mouseDown = false;
+
+
+// rainbowButton.onclick  = () => {
+//     if (!rainbowPen){
+//         rainbowPen = true
+//         eraser = false
+//         // rainbowButton.classList.add('btnOn')
+//         // eraserButton.classList.add('btnOn')
+//     }else {
+//         rainbowPen = false
+//         // rainbowButton.classList.remove('btnOn')
+
+//     };
+// };
+
+
+// eraserButton.onclick  = () => {
+//     if (!eraser){
+//         eraser = true
+//         rainbowPen = false
+//         // rainbowButton.classList.add('btnOn')
+//         // eraserButton.classList.add('btnOn')
+//     }else {
+//         eraser = false
+//         // rainbowButton.classList.remove('btnOn')
+
+//     };
+// };
+
+// eraserButton.onclick = () => {
+//     deleteGrid()
+//     createGrid(gridSize)
+
+// };
+
+
+// toggleGrid.onclick = ()=>{
+//     const cells = Array.from(document.getElementsByClassName('cell'))
+
+//     cells.forEach(cell =>{
+//         cell.classList.toggle('CellGrid')
+//     });
+    
+//     if (Grid) Grid=false
+//     else Grid=true
+
+// };
+
+// function createGrid (size){
+//     gridContainer.style.gridTemplateColumns= `repeat(${size}, 1fr)`
+//     gridContainer.style.gridTemplateRows= `repeat(${size}, 1fr)`
+
+//     for (let i=0; i< size*size; i++){
+//         const cell = document.createElement('div');
+//         cell.classList.add('cell','clean');
+//         if (Grid) cell.classList.add('CellGrid')
+//         cell.addEventListener('mouseover' , changeCellColour);//so you can drag mouse across grid
+//         cell.addEventListener('click' , changeCellColour); //so you can click on one square
+//         cell.style.background = `${CellBackgroundColour}`
+//         cell.style.border = 1
+
+//         gridContainer.appendChild(cell)
+//     };
+// };
 
 
 

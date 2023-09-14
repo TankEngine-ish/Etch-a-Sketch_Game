@@ -353,19 +353,26 @@ h2{
     border-style:solid;
     user-select: none;
     background-color:white;
-    gap: 2px;
+    /* gap: 2px; */
     /* grid-template-columns: repeat(var(--grid-size), 1fr);
     grid-template-rows: repeat(var(--grid-size), 1fr); */
     cursor:crosshair;
   
 }
 
-
-.square {
-  padding-bottom: 100%;
+.row{
   background-color: white;
+  flex:1 0 0;
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: rgba(221, 221, 221, 0.507);
+  
+  user-select: none;
 }
 
-.grid-lines {
-  outline: 1px solid black;
+.column{  
+    flex:1 0 0;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;    
 }

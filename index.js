@@ -7,19 +7,27 @@
 // So I need to have in mind the following: setting the color, setting the mode and making the colors random, setting the size of grid
 // Later on I need to have in mind: deleting squares on click and deleting the whole grid.
 
+// let colorTrigger = false;
 
-const rangeSlider = document.querySelector ('#range');
+let color = '#000000';   
+// initializing the drawing on page load
+
+
 const gridContainer = document.querySelector('.gridContainer');
+const toggleGrid = document.querySelector('input[type=checkbox]');
+const rangeSlider = document.querySelector ('#range');
+
 
 const colorButton = document.getElementById('color');
 const rainbowButton = document.getElementById('rainbow');
-
-const toggleGrid = document.querySelector('input[type=checkbox]');
 
 const eraserButton = document.getElementById('eraser');
 const nukeButton = document.getElementById('total_erase');
 
 const textSizePanel = document.querySelector('.textSizePanel');
+
+
+
 
 gridContainer.addEventListener('mousedown', () => {      
     colorTrigger = true;  
@@ -28,6 +36,8 @@ gridContainer.addEventListener('mousedown', () => {
 gridContainer.addEventListener('mouseup', () => {      
     colorTrigger = false;  
 });
+
+
 
 
 function draw(color){                                           //draw function with current color
@@ -47,6 +57,8 @@ function draw(color){                                           //draw function 
 }
 
 
+
+
 function drawGrid(flag){                                         //switch grid function  
     let rowElements = document.querySelectorAll('.row'); //Create list of grid elements
     
@@ -54,11 +66,12 @@ function drawGrid(flag){                                         //switch grid f
             rowElement.style.borderWidth = flag;                       
     }            
 }
+drawGrid() 
 
 let size;
 let sizePrev;
 
-function drawSquare(){                  // draw grid function(column-direction flexbox of row-direction flexboxes) 
+function drawSquares(){                  // draw grid function(column-direction flexbox of row-direction flexboxes) 
     size = Number(document.getElementById("range").value);
     sizePrev = size;                    // Value for field cleaner
     
@@ -73,19 +86,25 @@ function drawSquare(){                  // draw grid function(column-direction f
             column.appendChild(rowElement);
         }
     }
-    colorButton = document.getElementById("color").value;
+    // colorButton = document.getElementById("color").value;
     draw(color);
 }
 
-// drawSquare() 
+drawSquares() 
+
 
 
 let flag;
+
 
 toggleGrid.addEventListener('change', function (e) {            //switch grid button
     localStorage.status = e.target.checked ? flag = "0.1px" : flag = "0";
     drawGrid(flag);
   });
+
+
+
+
 
 function clearField(){
     for (let j=1; j <= sizePrev; j++){
@@ -94,9 +113,12 @@ function clearField(){
     }
 }
 
+
+
+
 nukeButton.addEventListener('click', () => {             //field clear button
     clearField();
-    drawSquare();
+    drawSquares();
     drawGrid(flag);    
 });  
 
@@ -108,7 +130,7 @@ rangeSlider.addEventListener('change', () => {              //change grid size r
     textSizePanel.textContent = sizeVal + '  x  ' + sizeVal;
     size = Number(document.getElementById("range").value);
     clearField();
-    drawSquare();
+    drawSquares();
     drawGrid(flag);   
 });
 
@@ -116,11 +138,37 @@ rangeSlider.addEventListener('change', () => {              //change grid size r
 
 
 
+// eraserButton.onclick  = () => {
+//         if (!eraser){
+//             eraser = true
+//             rainbowPen = false
+//             // rainbowButton.classList.add('btnOn')
+//             // eraserButton.classList.add('btnOn')
+//         }else {
+//             eraser = false
+//             // rainbowButton.classList.remove('btnOn')
+    
+//         };
+//     };
+
+
+// function eraseSquare;
+
+
+// eraserButton.onclick = () => {
+    
+//     drawGrid(g)
+
+// };
+
+
+
+
 colorButton.addEventListener('change', () => {    //change color picker
     color = document.getElementById('color').value;     
     draw(color);
-    gridContainer.style.boxShadow =`0 0 30px ${color}`;
-    gridContainer.style.borderColor = color;  
+    // gridContainer.style.boxShadow =`0 0 30px ${color}`;
+    // gridContainer.style.borderColor = color;  
 } )
 
 

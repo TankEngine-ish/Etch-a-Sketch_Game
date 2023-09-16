@@ -8,164 +8,427 @@
 // Later on I need to have in mind: deleting squares on click and deleting the whole grid.
 
 
-let isDrawing = false;
-let rainbowMode = false;
-
-const gridContainer = document.querySelector('.gridContainer');
-const toggleGrid = document.querySelector('input[type=checkbox]');
-const rangeSlider = document.querySelector ('#range');
 
 
-const colorButton = document.getElementById('color');
-const rainbowButton = document.getElementById('rainbow');
+const container = document.querySelector('gridContainer');
+let squares = document.querySelectorAll('cell');
+let squareList;
 
-const eraserButton = document.getElementById('eraser');
-const nukeButton = document.getElementById('total_erase');
-
-const textSizePanel = document.querySelector('.textSizePanel');
+let slider = document.querySelector('.slider');
+let sliderValue = document.querySelector('#slider-value');
 
 
-function draw(color){                                           
-    let coloredRowElements = document.querySelectorAll('.row'); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let isDrawing = false;
+// let rainbowMode = false;
+// let eraser = false;
+// let coloredRowElements;
+
+// container.addEventListener('mousedown', () => {      
+//     isDrawing = true;  
+// });   
+
+// container.addEventListener('mouseup', () => {      
+//     isDrawing = false;  
+// });
+
+
+
+
+// const gridContainer = document.querySelector('.gridContainer');
+// const toggleGrid = document.querySelector('input[type=checkbox]');
+// const rangeSlider = document.querySelector ('#range');
+
+
+// const colorButton = document.getElementById('color');
+// const rainbowButton = document.getElementById('rainbow');
+
+// const eraserButton = document.getElementById('eraser');
+// const nukeButton = document.getElementById('total_erase');
+
+// const textSizePanel = document.querySelector('.textSizePanel');
+
+// let activeBrush = null;
+
+// function changeWhite(event) {
+//     event.target.style.backgroundColor = '#ffffff';
+// }
+
+
+// function changeCustomColor(event) {
+//     event.target.style.backgroundColor = customColor.value;
+// }
+
+// function applyBrush(row) {
+//     row.addEventListener('mouseover', function(event) {
+//         if (event.buttons === 1) {
+
+//             }if (activeBrush === 'eraser') {
+//                 changeWhite(event);
+//             } else if (activeBrush === 'custom') {
+//                 changeCustomColor(event);
+     
+//             }
+//         });
+//     }
+
+
+// function removeBrush (row) {
     
-    coloredRowElements.forEach((coloredRowElement) => {
-        coloredRowElement.addEventListener('mousedown', () => {
-            if (isDrawing) {
-                coloredRowElement.style.backgroundColor = color.value;
-            }
-        });
-
-        coloredRowElement.addEventListener('mousedown', () => {
-            coloredRowElement.style.backgroundColor = color.value;
-        });
-    });
-}
-// this is the drawing function
-
-
-
-
-function drawGrid(flag){                                         
-    let rowElements = document.querySelectorAll('.row'); 
+//         row.removeEventListener('mouseover', changeWhite);
+//         row.removeEventListener('mouseover', changeCustomColor);
     
-    for (let rowElement of rowElements){
-            rowElement.style.borderWidth = flag;                       
-    }            
-}
+// }
+
+// coloredRowElements.forEach(function(row) {
+//     cell.addEventListener('mousedown', function(event) {
+//         applyBrush(row, event);
+//     });
+//     row.addEventListener('mouseup', function() {
+//         removeBrush(row);
+//     });
+// });
 
 
-let flag;
-toggleGrid.addEventListener('change', function (e) {            //switch grid button
-    localStorage.status = e.target.checked ? flag = "0.1px" : flag = "0";
-    drawGrid(flag);
-  });
+// // Event listeners that apply the selected brush to activeBrush when you click the buttons 
+// // and also removes the other previously selected brush
 
 
-// the function above is the toggle on and off grid lines and the toggleGrid.addEventListener
-// is the actual toggle button doing the toggling
+// eraserButton.addEventListener('click', function() {
+// activeBrush = 'eraser';
+//    coloredRowElements.forEach(removeBrush);
+//    coloredRowElements.forEach(applyBrush);
+// });
+
+// colorButton.addEventListener('input', function() {
+//     activeBrush = 'custom';
+//     coloredRowElements.forEach(removeBrush);
+//     coloredRowElements.forEach(applyBrush);
+// });
 
 
 
 
-let size;
-let sizePrev;
 
-function drawSquares(){               
-    size = Number(document.getElementById("range").value);
-    sizePrev = size;                    
+
+
+// function draw(color){                                           
+//     coloredRowElements = document.querySelectorAll('.row'); 
     
-    for (let j=1; j <= size; j++){
-        const column = document.createElement('div');
-        column.classList.add('column');
-        gridContainer.appendChild(column);   
+//     for (const coloredRowElement of coloredRowElements){
         
-        for (let i=1; i <= size ; i++) {
-            const rowElement = document.createElement('div');
-            rowElement.classList.toggle('row');  
-            column.appendChild(rowElement);
-        }
-    }
-}
+//         coloredRowElement.addEventListener('mousedown', () => {
+//             coloredRowElement.style.backgroundColor = color;             
+//         });  
+        
+//         coloredRowElement.addEventListener('mousemove', () => {
+//             if (isDrawing) {
+//             coloredRowElement.style.backgroundColor = color;                 
+//         }
+//     });           
+// }
+// }
 
-drawSquares() 
+// colorButton.addEventListener('input', () => {
+//     const selectedColor = colorButton.value;
+//     draw(selectedColor);
+// });
 
-// this is the have actual grid lines and squares show up function
-
-
-
-
-
-//   This code listens for changes to the checkbox (toggleGrid), and when the checkbox is changed,
-//   it updates the localStorage.status value and the flag variable 
-//   based on whether the checkbox is checked or not. 
-//   Then, it calls the drawGrid function with the appropriate grid width value (flag).
-
-
-
-function clearField(){
-    for (let j=1; j <= sizePrev; j++){
-        const column = document.querySelector('.column')
-        gridContainer.removeChild(column);
-    }
-}
+// // colorButton.addEventListener('change', () => {    //change color picker
+// //     color = document.getElementById("color").value;     
+// //     draw(color); 
+// // } )
 
 
-nukeButton.addEventListener('click', () => {             //field clear button
-    clearField();
-    drawSquares();
-    drawGrid(flag);  
-});  
 
-eraserButton.addEventListener('click', () => {
-// if a square is drawn on on click return it to white
-
-coloredRowElements.forEach((coloredRowElement) => {
-    coloredRowElement.style.backgroundColor = 'white';
-
-})
-});
+// // this is the drawing function
 
 
-rainbowButton.addEventListener('click', () => {
-    rainbowMode = !rainbowMode;
-  
-});
+// function drawGrid(flag){                                         
+//     let rowElements = document.querySelectorAll('.row'); 
+    
+//     for (let rowElement of rowElements){
+//             rowElement.style.borderWidth = flag;                       
+//     }            
+// }
 
-gridContainer.addEventListener('mousedown', () => {
-    isDrawing = true;
-});
+// let flag;
+// toggleGrid.addEventListener('change', function (e) {            //switch grid button
+//     localStorage.status = e.target.checked ? flag = "0.1px" : flag = "0";
+//     drawGrid(flag);
+//   });
 
-gridContainer.addEventListener('mouseup', () => {
-    isDrawing = false;
-});
+// //   This code listens for changes to the checkbox (toggleGrid), and when the checkbox is changed,
+// //   it updates the localStorage.status value and the flag variable 
+// //   based on whether the checkbox is checked or not. 
+// //   Then, it calls the drawGrid function with the appropriate grid width value (flag).
 
-
-gridContainer.addEventListener('mousemove', (e) => {
-    if (!isDrawing) return;
-    if (rainbowMode) {
-        // Generate a random color in rainbow mode
-        const randomColor = `rgb(${Math.random() * 256}, ${Math.random() * 256}, ${Math.random() * 256})`;
-        e.target.style.backgroundColor = randomColor;
-    } else {
-        // Set a constant color when not in rainbow mode (e.g., black)
-        e.target.style.backgroundColor = 'black';
-    }
-});
+// // the function above is the toggle on and off grid lines and the toggleGrid.addEventListener
+// // is the actual toggle button doing the toggling
 
 
 
 
+// let size;
+// let sizePrev;
 
-rangeSlider.addEventListener('change', () => {              //change grid size range
-    let sizeVal = document.getElementById("range").value;
-    textSizePanel.textContent = sizeVal + '  x  ' + sizeVal;
-    size = Number(document.getElementById("range").value);
-    clearField();
-    drawSquares();
-    drawGrid(flag);   
-});
+// function drawSquares(){               
+//     size = Number(document.getElementById("range").value);
+//     sizePrev = size;                    
+    
+//     for (let j=1; j <= size; j++){
+//         const column = document.createElement('div');
+//         column.classList.add('column');
+//         gridContainer.appendChild(column);   
+        
+//         for (let i=1; i <= size ; i++) {
+//             const rowElement = document.createElement('div');
+//             rowElement.classList.toggle('row');  
+//             column.appendChild(rowElement);
+//         }
+//     }
+// }
+
+// drawSquares() 
+
+// // this is the actual grid lines and squares show up function
+// // It's creating the infamous divs in my otherwise empty grid
 
 
-window.onload = () => {
-  
-  }
+
+
+// rangeSlider.addEventListener('change', () => {             
+//     let sizeVal = document.getElementById("range").value;
+//     textSizePanel.textContent = sizeVal + '  x  ' + sizeVal;
+//     size = Number(document.getElementById("range").value);
+//     clearField();
+//     drawSquares();
+//     drawGrid(flag);   
+// });
+
+// // this is changing the grid size and it targets the slider
+
+
+
+// function clearField(){
+//     for (let j=1; j <= sizePrev; j++){
+//         const column = document.querySelector('.column')
+//         gridContainer.removeChild(column);
+//     }
+// }
+
+// // defining the clear the color from the grid function
+
+
+
+// nukeButton.addEventListener('click', () => {            
+//     clearField(); 
+//     drawSquares(); //this line preserves the grid after nuking the colors!
+//     drawGrid(flag);  // this line resets the grid 
+// });  
+
+// // this is the delete all color from the grid button
+
+
+// rainbowButton.addEventListener('click', () => {
+//     rainbowMode = !rainbowMode;
+// });
+
+
+
+// gridContainer.addEventListener('mousemove', (e) => {
+//     if (!isDrawing) return;
+//     if (rainbowMode) {
+//         // Generate a random color in rainbow mode
+//         const randomColor = `rgb(${Math.random() * 256}, ${Math.random() * 256}, ${Math.random() * 256})`;
+//         e.target.style.backgroundColor = randomColor;
+//     } else {
+//         // Set a constant color when not in rainbow mode (e.g., black)
+//         e.target.style.backgroundColor = 'black';
+//     }
+// });
+

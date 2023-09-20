@@ -7,15 +7,28 @@
 // So I need to have in mind the following: setting the color, setting the mode and making the colors random, setting the size of grid
 // Later on I need to have in mind: deleting squares on click and deleting the whole grid.
 
+// const colorActivate = document.getElementById('colorActivate');
 
 
 
+const grid = document.getElementById('gridContainer');
 
-const container = document.getElementById("grid-container");
+const color = document.getElementById('color');
+const rainbow = document.getElementById('rainbow');
+const eraser = document.getElementById('eraser');
+const totalErase = document.getElementById('totalErase');
+
+const textSizePanel = document.getElementById('textSizePanel');
+const slider = document.getElementById('grid-size');
+const toggleGrid = document.getElementById('gridLines');
 
 
 
-
+let gridSize = 16
+let penMode = 'color'
+let gridLinesOn = true
+setUp()
+let squares = document.querySelectorAll('.square')
 
 
 

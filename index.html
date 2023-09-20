@@ -23,11 +23,11 @@
  <div class = "buttons">
             
         <!-- <div class="button_eraser"> -->
-        <button id="eraser">ERASER</button>     
+        <button class="pencil" id="eraser">ERASER</button>     
         <!-- </div> -->
 
 
-        <button id ="rainbow">Rainbow Mode!</button>
+        <button class="pencil" id="rainbow">Rainbow Mode!</button>
     
 
         
@@ -42,25 +42,22 @@
 
     <div class ="fieldsets">
         
-            <fieldset class="rightSide sizeButton">
-                <legend class="textSize">Grid Size</legend>
-                <output id="textSizePanel">16 x 16</output>  
-                <!-- // <output> HTML element is a container element into which a site or app can inject the results of a calculation 
-                or the outcome of a user action. */ -->
-            
-                    <input type="range" id="slider" min="2" max="64" value="16" step="2">
-                                <!-- input type ="range" creates the slider -->
-            </fieldset>                         
+        <div class="slider">
+            <label for="grid-size">Grid Size: </label>
+            <input type="range" name="grid-size" id="grid-size" min="2"
+                max="64" step="2" value="16">
+        </div>                     
          
        
             <fieldset class="rightSide colorButton">
                 <legend class="textPanel">Color</legend>
-                <input id="color" type = "color" class = "color-picker" value="#000000">
+                <input id="color" type = "color" class = "pencil" value="#000000">
                                 <!-- input type ="color" provides me with a user interface element that lets me specify a color -->
             </fieldset>
-<!-- 
-            <button id = "colorActivate">Color Mode</button>
-         -->
+
+            <button id = "canvasFill">Canvas Fill =></button> <input id="color" type = "color" class = "pencil" 
+            id="background-color" value="#000000">
+      
 
             <fieldset class="rightSide">
                 <legend class="textPanel">Grid Lines</legend>    

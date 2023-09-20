@@ -120,6 +120,9 @@ h2{
   }
   
 
+
+
+
   label {
     cursor: pointer;
     text-indent: -9999px;
@@ -155,6 +158,7 @@ h2{
   label:active:after {
     width: 130px;
   }
+
 
   #rainbow {
     position:relative;
@@ -217,7 +221,7 @@ h2{
 
 
 
-  #colorActivate{
+  #canvasFill{
     --c:  rgb(255, 136, 0); /* the color*/
     
     box-shadow: 0 0 0 .1em inset var(--c); 
@@ -231,7 +235,7 @@ h2{
     outline-offset: .1em;
     transition: background-size .4s, background-position 0s .4s;
     font-family: system-ui, sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     cursor: pointer;
     padding: .1em .6em;
     padding: 20px;
@@ -241,11 +245,11 @@ h2{
     color:white;
   
   }
-  #colorActivate:hover {
+  #canvasFill:hover {
     --_p: 100%;
     transition: background-position .4s, background-size 0s;
   }
-  #colorActivate:active {
+  #canvasFill:active {
     box-shadow: 0 0 9e9q inset #0009; 
     background-color: var(--c);
     color: #fff;
@@ -390,11 +394,16 @@ h2{
     border-style:solid;
     user-select: none;
     background-color:white;
-    /* gap: 2px; */
-    /* grid-template-columns: repeat(var(--grid-size), 1fr);
-    grid-template-rows: repeat(var(--grid-size), 1fr); */
+    
+    grid-template-columns: repeat(var(--grid-size), 1fr);
+    grid-template-rows: repeat(var(--grid-size), 1fr);
     cursor:crosshair;
   
+}
+
+.square {
+  padding-bottom: 100%;
+  background-color: white;
 }
 
 
@@ -409,14 +418,10 @@ h2{
 
 
 
+/* 
 
 
-
-
-
-
-
-/* .row{
+.row{
   background-color: white;
   flex:1 0 0;
   border-style: solid;
@@ -431,4 +436,4 @@ h2{
     display: flex;
     justify-content: stretch;
     align-items: stretch;    
-} */
+}  */

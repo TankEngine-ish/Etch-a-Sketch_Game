@@ -274,7 +274,7 @@ h2{
 }
       
 
-#total_erase {
+#totalErase {
     appearance: none;
     background-clip: padding-box;
     background-color: initial;
@@ -307,17 +307,17 @@ h2{
 }
 
 @media (min-width: 768px) {
-    #total_erase {
+    #totalErase {
     padding: 19px 32px;
   }
 }
 
-#total_erase:before,
-#total_erase:after {
+#totalErase:before,
+#totalErase:after {
     border-radius: 80px;
 }
 
-#total_erase:before {
+#totalErase:before {
     background-image: linear-gradient(92.83deg, #aa0808 0, #861d08 100%);
     content: "";
     display: block;
@@ -330,7 +330,7 @@ h2{
     z-index: -2;
 }
 
-#total_erase:after {
+#totalErase:after {
     background-color: initial;
     background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
     bottom: 4px;
@@ -345,11 +345,11 @@ h2{
     z-index: -1;
 }
 
-#total_erase:hover:not(:disabled):before {
+#totalErase:hover:not(:disabled):before {
     background: linear-gradient(92.83deg, rgb(87, 4, 1) 0%, rgb(104, 6, 6) 100%);
 }
 
-#total_erase:hover:not(:disabled):after {
+#totalErase:hover:not(:disabled):after {
     bottom: 0;
     left: 0;
     right: 0;
@@ -358,15 +358,15 @@ h2{
     opacity: 0;
 }
 
-#total_erase:active:not(:disabled) {
+#totalErase:active:not(:disabled) {
     color: #ccc;
 }
 
-#total_erase:active:not(:disabled):before {
+#totalErase:active:not(:disabled):before {
     background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
 }
 
-#total_erase:active:not(:disabled):after {
+#totalErase:active:not(:disabled):after {
     background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
     bottom: 4px;
     left: 4px;
@@ -374,7 +374,7 @@ h2{
     top: 4px;
 }
 
-#total_erase:disabled {
+#totalErase:disabled {
     cursor: default;
     opacity: .60;
 }

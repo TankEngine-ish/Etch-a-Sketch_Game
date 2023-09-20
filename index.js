@@ -8,26 +8,10 @@
 // Later on I need to have in mind: deleting squares on click and deleting the whole grid.
 
 
-ENUMS
-const MODE = {
-    DEFAULT: 'default',
-    RAINBOW: 'rainbow',
-    ERASER: 'eraser'
-};
 
-const COLOUR = {
-    DEFAULT: '#1f1f1f',
-    ERASER: '#eaeaea'
-};
 
-const DEFAULT_COLOUR = COLOUR.DEFAULT;
-const DEFAULT_MODE = MODE.DEFAULT;
-const DEFAULT_GRID_SIZE = 16;
 
-const gridContainer = document.getElementById('gridContainer');
-const color = document.getElementById('color');
-const colorActivate = document.getElementById('colorActivate');
-const rainbow = document.getElementById('rainbow');
+const container = document.getElementById("grid-container");
 
 
 
@@ -152,44 +136,186 @@ const rainbow = document.getElementById('rainbow');
 
 
 
+// const MODE = {
+//     DEFAULT: 'default',
+//     RAINBOW: 'rainbow',
+//     ERASER: 'eraser'
+// };
 
+// const COLOUR = {
+//     DEFAULT: '#1f1f1f',
+//     ERASER: '#eaeaea'
+// };
 
+// const DEFAULT_COLOUR = COLOUR.DEFAULT;
+// const DEFAULT_MODE = MODE.DEFAULT;
+// const DEFAULT_GRID_SIZE = 16;
 
+// const grid = document.querySelector('.grid');
+// const color = document.getElementById('color');
+// const colorActivate = document.getElementById('colorActivate');
+// const rainbow = document.getElementById('rainbow');
+// const eraser = document.getElementById('eraser');
+// const totalErase = document.getElementById('totalErase');
+// const textSizePanel = document.getElementById('textSizePanel');
+// const slider = document.getElementById('slider');
+// const toggleGrid = document.querySelector('input[type=checkbox]');
 
 
+// let selectedColour = DEFAULT_COLOUR;
+// let selectedMode = DEFAULT_MODE;
+// let gridSize = DEFAULT_GRID_SIZE;
+// let mousePressed = false;
 
+// // Main Execution
+// defaultSetup();
 
+// // Functions
+// function defaultSetup() {
+//     updateSizeTxt(DEFAULT_GRID_SIZE);
+//     populateGrid(DEFAULT_GRID_SIZE);
+//     setMode(DEFAULT_MODE);
+// }
 
+// function randColourChannel() {
+//     return Math.floor((Math.random() * 256));
+// }
 
+// function populateGrid(gridSize) {
+//     // Both Rows and Columns size set at once
+//     grid.style.gridTemplate = `repeat(${gridSize}, 1fr) / repeat(${gridSize}, 1fr)`;
 
+//     for (let i = 0; i < gridSize * gridSize; i++)
+//         grid.appendChild(createGridElement());
+// }
 
+// function createGridElement() {
+//     const gridElement = document.createElement('div');
+//     gridElement.classList.toggle('gridElement');
+//     gridElement.addEventListener('mouseover', colourElement);
 
+//     // To Ensure the starting element being pressed is coloured before dragging around
+//     gridElement.addEventListener('mousedown', colourElement);
+//     return gridElement;
+// }
 
+// function drawGrid(flag){                                         
+//     let gridElement = document.querySelectorAll('.div'); 
+    
+//     for (let gridElement of gridELements){
+//             gridElement.style.borderWidth = flag;                       
+//     }            
+// }
 
+// let flag;
+// toggleGrid.addEventListener('change', function (e) {            //switch grid button
+//     localStorage.status = e.target.checked ? flag = "0.1px" : flag = "0";
+//     drawGrid(flag);
+//   });
 
+// //   This code listens for changes to the checkbox (toggleGrid), and when the checkbox is changed,
+// //   it updates the localStorage.status value and the flag variable 
+// //   based on whether the checkbox is checked or not. 
+// //   Then, it calls the drawGrid function with the appropriate grid width value (flag).
 
+// // the function above is the toggle on and off grid lines and the toggleGrid.addEventListener
+// // is the actual toggle button doing the toggling
 
 
 
+// function setMode(mode) {
+//     deactivateActiveButton();
+//     setActiveButton(mode);
+//     setColour(mode);
 
+//     selectedMode = mode;
+// }
 
+// function deactivateActiveButton() {
+//     switch (selectedMode) {
+//         case MODE.RAINBOW:
+//             rainbow.classList.toggle('active');
+//             break;
+//         case MODE.ERASER:
+//             eraser.classList.toggle('active');
+//             break;
+//         default:
+//             color.classList.toggle('active');
+//             break;
+//     }
+// }
 
+// function setActiveButton(mode) {
+//     switch (mode) {
+//         case MODE.RAINBOW:
+//             rainbow.classList.toggle('active');
+//             break;
+//         case MODE.ERASER:
+//             eraser.classList.toggle('active');
+//             break;
+//         default:
+//             color.classList.toggle('active');
+//             break;
+//     }
+// }
 
+// function setColour(mode) {
+//     switch (mode) {
+//         case MODE.RAINBOW:
+//             break;
+//         case MODE.ERASER:
+//             selectedColour = COLOUR.ERASER;
+//             break;
+//         default:
+//             selectedColour = pickerColour.value;
+//             break;
+//     }
+// }
 
+// function changeSelectedColour(colour) {
+//     selectedColour = colour;
+// }
 
+// function resetGrid() {
+//     gridContainer.innerHTML = '';
+//     populateGrid(gridSize);
+// }
 
+// function updateSizeTxt(size) {
+//     textSizePanel.textContent = `${size} x ${size}`;
+// }
 
+// function changeSize(size) {
+//     updateSizeTxt(size);
+//     gridSize = size;
 
+//     // Reset the grid to the new grid size
+//     resetGrid(gridSize);
+// }
 
+// // Event Listeners
+// document.body.onmousedown = () => (mousePressed = true);
+// document.body.onmouseup = () => (mousePressed = false);
 
-
-
-
-
-
-
-
-
+// slider.addEventListener('mousemove', (evt) => {
+//     updateSizeTxt(evt.target.value);
+// });
+// slider.addEventListener('change', (evt) => {
+//     changeSize(evt.target.value);
+// });
+// color.addEventListener('input', (evt) => {
+//     changeSelectedColour(evt.target.value);
+// });
+// colorActivate.addEventListener('click', () => {
+//     setMode(MODE.DEFAULT);
+// });
+// rainbow.addEventListener('click', () => {
+//     setMode(MODE.RAINBOW);
+// });
+// eraser.addEventListener('click', () => {
+//     setMode(MODE.ERASER);
+// });
+// totalErase.addEventListener('click', resetGrid);
 
 
 

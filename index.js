@@ -8,22 +8,26 @@
 // Later on I need to have in mind: deleting squares on click and deleting the whole grid.
 
 
+ENUMS
+const MODE = {
+    DEFAULT: 'default',
+    RAINBOW: 'rainbow',
+    ERASER: 'eraser'
+};
 
+const COLOUR = {
+    DEFAULT: '#1f1f1f',
+    ERASER: '#eaeaea'
+};
 
-const container = document.querySelector('gridContainer');
-let squares = document.querySelectorAll('cell');
-let squareList;
+const DEFAULT_COLOUR = COLOUR.DEFAULT;
+const DEFAULT_MODE = MODE.DEFAULT;
+const DEFAULT_GRID_SIZE = 16;
 
-let slider = document.querySelector('.slider');
-let sliderValue = document.querySelector('#slider-value');
-
-
-
-
-
-
-
-
+const gridContainer = document.getElementById('gridContainer');
+const color = document.getElementById('color');
+const colorActivate = document.getElementById('colorActivate');
+const rainbow = document.getElementById('rainbow');
 
 
 

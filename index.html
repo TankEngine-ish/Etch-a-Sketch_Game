@@ -16,10 +16,31 @@
         <h2>Hold your left mouse button over the empty grid to start drawing!</h3>
     </div>
 
-<div id = "container">
-    <div class ="gridContainer"></div>
+<div id = "websiteContainer">
 
-    <div class ="buttons">
+  
+        
+ <div class = "buttons">
+            
+        <!-- <div class="button_eraser"> -->
+        <button id="eraser">ERASER</button>     
+        <!-- </div> -->
+
+
+        <button id ="rainbow">Rainbow Mode!</button>
+    
+
+        
+        <!-- <div class="button_clear"> -->
+        <button id="total_erase">NUKE-A-SKETCH</button>
+        <!-- </div> -->
+        
+    </div>
+
+  <div id ="gridContainer"></div>
+
+
+    <div class ="fieldsets">
         
             <fieldset class="rightSide sizeButton">
                 <legend class="textSize">Grid Size</legend>
@@ -27,16 +48,18 @@
                 <!-- // <output> HTML element is a container element into which a site or app can inject the results of a calculation 
                 or the outcome of a user action. */ -->
             
-                    <input type="range" id="range" min="2" max="64" value="16" step="2">
+                    <input type="range" class="range" min="2" max="64" value="16" step="2">
                                 <!-- input type ="range" creates the slider -->
             </fieldset>                         
          
        
             <fieldset class="rightSide colorButton">
                 <legend class="textPanel">Color</legend>
-                <input type="color" class = "color-picker" id="color" value="#000000">
+                <input id="color" type = "color" class = "color-picker" value="#000000">
                                 <!-- input type ="color" provides me with a user interface element that lets me specify a color -->
             </fieldset>
+
+            <button id = "colorActivate">Color Mode</button>
         
 
             <fieldset class="rightSide">
@@ -46,32 +69,15 @@
             <!-- checked is required if you want the on-load behavior to be set to 'on'! -->
             </div>
             </fieldset>
-            
-        <div class="button_eraser">
-            <button id="eraser">ERASER</button>     
-        </div>
-
-
-            <button id ="rainbow">Rainbow Mode!</button>
-    
-
-        
-        <div class="button_clear">
-            <button id="total_erase">NUKE-A-SKETCH</button>
-        </div>
-        
     </div>
+
+   
     
        
-        
-
 </div>
 
 
         <script src="index.js" defer></script>
-
-
-
 
 </body>
 </html>

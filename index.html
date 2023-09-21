@@ -46,25 +46,22 @@
             <label for="grid-size">Grid Size: </label>
             <input type="range" name="grid-size" id="grid-size" min="2"
                 max="64" step="2" value="16">
-        </div>                     
+        </div>               
          
-       
             <fieldset class="rightSide colorButton">
                 <legend class="textPanel">Color</legend>
-                <input id="color" type = "color" class = "pencil" value="#000000">
-                                <!-- input type ="color" provides me with a user interface element that lets me specify a color -->
+                <input type="color" id="customColor" class = "pencil" value="#000000">                   
             </fieldset>
 
-            <button id = "canvasFill">Canvas Fill =></button> <input id="color" type = "color" class = "pencil" 
-            id="background-color" value="#000000">
+            <button id = "canvasFill">Canvas Fill =></button> 
+            <input type="color" class = "pencil" id="backgroundColor" value="#000000">
       
 
             <fieldset class="rightSide">
-                <legend class="textPanel">Grid Lines</legend>    
-            <div class="check">
-                <input type="checkbox" id="gridLines" checked><label for="gridLines"></label>
+                <legend class="textPanel">Grid Lines</legend> 
+                <div class ="checkbox-wrapper">
+                <input type="checkbox" id = "gridLines" checked></div>
             <!-- checked is required if you want the on-load behavior to be set to 'on'! -->
-            </div>
             </fieldset>
     </div>
 

@@ -4,12 +4,10 @@
   --grid-size: 1;
 }
 
-
 * {
     margin:0;
     padding:0;
 }
-
 
 html {
     background: url(./Images/background_image.jpg);
@@ -23,6 +21,8 @@ html {
     font-family: 'Kotta One', serif;
     line-height:3.5rem;
 }
+
+
 
 h1 {
     text-shadow:
@@ -121,8 +121,6 @@ h2{
    */
 
 
-
-
   label {
    
     text-shadow:
@@ -162,7 +160,7 @@ h2{
   } */ 
 
 
-  #rainbow {
+  [data-name="rainbow"]{
     position:relative;
     transition: 0.9s;
     top: 50%;
@@ -184,7 +182,7 @@ h2{
     z-index: 1;
   }
   
- #rainbow:hover {
+  [data-name="rainbow"]:hover {
     transition: 0.9s;
   }
   
@@ -197,7 +195,7 @@ h2{
     }
   }
   
-  #rainbow:before {
+  [data-name="rainbow"]:before {
     transition: 0.9s;
     content: '';
     position: absolute;
@@ -214,7 +212,7 @@ h2{
     
   }
   
-  #rainbow:hover:before {
+  [data-name="rainbow"]:hover:before {
     filter: blur(20px);
     opacity: 1;
     animation: animate 8s linear infinite;
@@ -259,7 +257,7 @@ h2{
   
 
 
-#eraser {
+[data-name="eraser"]{
   border-radius: 40px;
     margin-bottom:60px;
     margin-top:30px;  
@@ -274,7 +272,7 @@ h2{
     border-style: solid;
         
 }   
- #eraser:hover {
+[data-name="eraser"]:hover {
     color: rgb(255, 136, 0);
     box-shadow: 10px 10px 0 rgb(255, 136, 0);
 }
@@ -396,7 +394,6 @@ h2{
     border-style:solid;
     user-select: none;
     background-color:white;
-    
     grid-template-columns: repeat(var(--grid-size), 1fr);
     grid-template-rows: repeat(var(--grid-size), 1fr);
     cursor:crosshair;

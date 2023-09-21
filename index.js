@@ -10,6 +10,142 @@
 // const colorActivate = document.getElementById('colorActivate');
 
 
+const gridContainer = document.getElementById('gridContainer');
+
+const color = document.getElementById('customColor');
+const rainbow = document.querySelector('rainbow');
+const eraser = document.querySelector('eraser');
+const totalErase = document.getElementById('totalErase');
+
+// const textSizePanel = document.getElementById('textSizePanel');
+
+const slider = document.querySelector('input[type="range"]');
+const toggleGrid = document.querySelector('#gridLines');
+
+
+    let gridSize = 16
+    let penMode = 'customColor'
+    let gridLinesOn = true
+    setUp();
+    
+    
+    let squares = document.querySelectorAll('.square')
+
+
+
+function setUp() {
+        createGrid(gridSize)
+        displayGridSize(gridSize)
+    
+        const pencils = document.querySelectorAll('.pencil')
+        for (let pencil of pencils) {
+            pencil.addEventListener('click', function () {
+                document.querySelector('.active').classList.remove('active')
+                penMode = pencil.dataset.name
+                pencil.classList.add('active')
+            })
+        }
+    
+        color.classList.add('active')
+        totalErase.addEventListener('click', clearGrid)
+        toggleGrid.addEventListener('change', toggleGridLines)
+        slider.addEventListener('input', displayGridSize)
+        slider.addEventListener('change', changeGridSize)
+    }
+
+
+    function createGrid(size) {
+    document.documentElement.style.setProperty('--grid-size', size)
+
+    // prevent "no-drop" cursor from showing up on some clicks
+    gridContainer.addEventListener('mousedown', function (e) {
+        e.preventDefault()
+    })
+
+    for (let i = 0; i < size * size; i++) {
+        const square = document.createElement('div')
+        square.classList.add('square')
+        gridContainer.appendChild(square)
+
+        square.addEventListener('mouseover', changeColor)
+        square.addEventListener('mousedown', changeColor)
+
+        if (gridLinesOn) {
+            square.classList.add('gridLines')
+        }
+    }
+}
+
+
+function changeGridSize() {
+    for (let square of squares) {
+        square.remove()
+    }
+    gridSize = slider.value
+    createGrid(gridSize)
+    squares = document.querySelectorAll('.square')
+}
+
+
+
+function displayGridSize() {
+    const gridSizeDisplay = document.querySelector('label[for="grid-size"]')
+    gridSizeDisplay.textContent = `Grid Size: ${slider.value} x ${slider.value}`
+}
+
+
+
+
+
+
+function toggleGridLines() {
+    gridLinesOn = !gridLinesOn
+    for (let square of squares) {
+        square.classList.toggle('gridLines')
+    }
+    gridContainer.classList.toggle('gridLines')
+}
+
+
+function clearGrid() {
+    for (let square of squares) {
+        square.style.backgroundColor = ''
+    }
+}
+
+
+function changeColor(event) {
+    if (event.buttons === 1) {
+        if (penMode === 'rainbow') {
+            this.style.backgroundColor = getRandomColor()
+        }
+        else if (penMode === 'eraser') {
+            this.style.backgroundColor = ''
+        }
+        else if (penMode === 'background-color') {
+            changeBackgroundColor()
+        }
+        else {
+            this.style.backgroundColor = color.value
+        }
+    }
+}
+
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 256)
+    const g = Math.floor(Math.random() * 256)
+    const b = Math.floor(Math.random() * 256)
+    return `rgb(${r}, ${g}, ${b})`
+}
+
+function changeBackgroundColor() {
+    const bgColorPicker = document.querySelector('#background-color')
+    for (let square of squares) {
+        if (!square.style.backgroundColor) {
+            square.style.backgroundColor = bgColorPicker.value
+        }
+    }
+}
 
 
 
@@ -29,18 +165,8 @@
 
 
 
-// const gridContainer = document.getElementById('gridContainer');
 
-// const color = document.getElementById('color');
-// const rainbow = document.getElementById('rainbow');
-// const eraser = document.getElementById('eraser');
-// const totalErase = document.getElementById('totalErase');
 
-// const sizeNumbers = document.querySelector(".sizeNumbers > p")
-// // const textSizePanel = document.getElementById('textSizePanel');
-
-// const slider = document.getElementById(input [type="range"]);
-// const toggleGrid = document.getElementById('gridLines');
 
 
 

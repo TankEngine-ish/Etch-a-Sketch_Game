@@ -7,8 +7,6 @@
 // So I need to have in mind the following: setting the color, setting the mode and making the colors random, setting the size of grid
 // Later on I need to have in mind: deleting squares on click and deleting the whole grid.
 
-// const colorActivate = document.getElementById('colorActivate');
-
 
 const gridContainer = document.getElementById('gridContainer');
 
@@ -17,25 +15,21 @@ const rainbow = document.querySelector('rainbow');
 const eraser = document.querySelector('eraser');
 const totalErase = document.getElementById('totalErase');
 
-// const textSizePanel = document.getElementById('textSizePanel');
-
 const slider = document.querySelector('input[type="range"]');
 const toggleGrid = document.querySelector('#gridLines');
 
 
-    let gridSize = 16
-    let penMode = 'customColor'
-    let gridLinesOn = true
-    setUp();
+let gridSize = 16
+let penMode = 'customColor'
+let gridLinesOn = true
+setUp()
     
-    
-    let squares = document.querySelectorAll('.square')
-
+let squares = document.querySelectorAll('.square')
 
 
 function setUp() {
         createGrid(gridSize)
-        displayGridSize(gridSize)
+        displayGridSize()
     
         const pencils = document.querySelectorAll('.pencil')
         for (let pencil of pencils) {
@@ -53,8 +47,7 @@ function setUp() {
         slider.addEventListener('change', changeGridSize)
     }
 
-
-    function createGrid(size) {
+function createGrid(size) {
     document.documentElement.style.setProperty('--grid-size', size)
 
     // prevent "no-drop" cursor from showing up on some clicks
@@ -76,7 +69,6 @@ function setUp() {
     }
 }
 
-
 function changeGridSize() {
     for (let square of squares) {
         square.remove()
@@ -93,18 +85,15 @@ function displayGridSize() {
     gridSizeDisplay.textContent = `Grid Size: ${slider.value} x ${slider.value}`
 }
 
-
-
-
-
-
 function toggleGridLines() {
     gridLinesOn = !gridLinesOn
     for (let square of squares) {
         square.classList.toggle('gridLines')
     }
     gridContainer.classList.toggle('gridLines')
+    
 }
+
 
 
 function clearGrid() {
@@ -112,6 +101,7 @@ function clearGrid() {
         square.style.backgroundColor = ''
     }
 }
+
 
 
 function changeColor(event) {
@@ -131,12 +121,18 @@ function changeColor(event) {
     }
 }
 
+
+
+
 function getRandomColor() {
     const r = Math.floor(Math.random() * 256)
     const g = Math.floor(Math.random() * 256)
     const b = Math.floor(Math.random() * 256)
     return `rgb(${r}, ${g}, ${b})`
 }
+
+
+
 
 function changeBackgroundColor() {
     const bgColorPicker = document.querySelector('#background-color')
@@ -146,11 +142,6 @@ function changeBackgroundColor() {
         }
     }
 }
-
-
-
-
-
 
 
 

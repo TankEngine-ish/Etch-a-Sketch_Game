@@ -27,6 +27,7 @@ setUp()
 let squares = document.querySelectorAll('.square')
 
 
+
 function setUp() {
         createGrid(gridSize)
         displayGridSize()
@@ -47,13 +48,10 @@ function setUp() {
         slider.addEventListener('change', changeGridSize)
     }
 
+
+
 function createGrid(size) {
     document.documentElement.style.setProperty('--grid-size', size)
-
-    // prevent "no-drop" cursor from showing up on some clicks
-    gridContainer.addEventListener('mousedown', function (e) {
-        e.preventDefault()
-    })
 
     for (let i = 0; i < size * size; i++) {
         const square = document.createElement('div')
@@ -69,6 +67,7 @@ function createGrid(size) {
     }
 }
 
+
 function changeGridSize() {
     for (let square of squares) {
         square.remove()
@@ -79,11 +78,11 @@ function changeGridSize() {
 }
 
 
-
 function displayGridSize() {
     const gridSizeDisplay = document.querySelector('label[for="grid-size"]')
     gridSizeDisplay.textContent = `Grid Size: ${slider.value} x ${slider.value}`
 }
+
 
 function toggleGridLines() {
     gridLinesOn = !gridLinesOn
@@ -95,13 +94,11 @@ function toggleGridLines() {
 }
 
 
-
 function clearGrid() {
     for (let square of squares) {
         square.style.backgroundColor = ''
     }
 }
-
 
 
 function changeColor(event) {
@@ -122,16 +119,12 @@ function changeColor(event) {
 }
 
 
-
-
 function getRandomColor() {
     const r = Math.floor(Math.random() * 256)
     const g = Math.floor(Math.random() * 256)
     const b = Math.floor(Math.random() * 256)
     return `rgb(${r}, ${g}, ${b})`
 }
-
-
 
 
 function changeBackgroundColor() {
@@ -156,7 +149,7 @@ function changeBackgroundColor() {
 
 
 
-
+// OLD JS BELOW
 
 
 
@@ -273,115 +266,6 @@ function changeBackgroundColor() {
 //         }
 //     }
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

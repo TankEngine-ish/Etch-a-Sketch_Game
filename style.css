@@ -106,8 +106,6 @@ h2{
     margin-top:30px;
   }
 
-  /* rightSide adjusts the CSS properties of the Grid Lines toggle function only! */
-
   .buttons {
     display: flex;
     flex-direction:column;
@@ -186,6 +184,7 @@ h2{
   
   [data-name="rainbow"]:hover {
     transition: 0.9s;
+    cursor:grab;
   }
   
   @keyframes animate {
@@ -250,6 +249,7 @@ h2{
   #canvasFill:hover {
     --_p: 100%;
     transition: background-position .4s, background-size 0s;
+    cursor:not-allowed;
   }
   #canvasFill:active {
     box-shadow: 0 0 9e9q inset #0009; 
@@ -391,26 +391,32 @@ h2{
     height: 670px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-top:40px;
-    border:10px;
+    border:20px;
     border-color: rgb(0, 0, 0);
-    border-style:solid;
+    border-style:groove;
     user-select: none;
     background-color:white;
     grid-template-columns: repeat(var(--grid-size), 1fr);
     grid-template-rows: repeat(var(--grid-size), 1fr);
-    cursor:crosshair;
+    cursor:cell;
   
 }
 
 .square {
   padding-bottom: 100%;
   background-color: white;
+  border-color: rgba(221, 221, 221, 0.507); 
+}
+
+
+.square:hover{
+  opacity:40%;
 }
 
 .gridLines {
-  outline: 1px solid black;
+  outline:rgb(0, 0, 0) 1.5px solid;
+  
 }
-
 
 .checkbox-wrapper input[type="checkbox"] {
   background-image: -webkit-linear-gradient(hsla(0,0%,0%,.1), hsla(0,0%,100%,.1)),
@@ -607,43 +613,3 @@ input[type="range"]::-ms-thumb {
     cursor: grabbing;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-
-
-.row{
-  background-color: white;
-  flex:1 0 0;
-  border-style: solid;
-  border-width: 0.1px;
-  border-color: rgba(221, 221, 221, 0.507);
-  
-  user-select: none;
-}
-
-.column{  
-    flex:1 0 0;
-    display: flex;
-    justify-content: stretch;
-    align-items: stretch;    
-}  */

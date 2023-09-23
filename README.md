@@ -17,3 +17,4 @@ Things I learned over the course of this project.
 
 Screengrab:
 
+![Alt text](Images/sketch.png)

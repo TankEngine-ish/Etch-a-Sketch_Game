@@ -14,6 +14,8 @@ Things I learned over the course of this project.
 
 6. Learning efficient prompting techniques when consulting chatGPT 3.5.
 
+Live preview: https://tankengine-ish.github.io/Etch-a-Sketch_Game/ 
+
 
 Screengrab:
 

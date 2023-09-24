@@ -50,10 +50,10 @@ function setUp() {
 
 
 
-function createGrid(size) {
-    document.documentElement.style.setProperty('--grid-size', size)
+function createGrid(gridSize) {
+    document.documentElement.style.setProperty('--grid-size', gridSize)
 
-    for (let i = 0; i < size * size; i++) {
+    for (let i = 0; i < gridSize * gridSize; i++) {
         const square = document.createElement('div')
         square.classList.add('square')
         gridContainer.appendChild(square)

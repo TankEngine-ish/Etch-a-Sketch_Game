@@ -85,7 +85,7 @@ function displayGridSize() {
 
 
 function toggleGridLines() {
-    gridLinesOn = !gridLinesOn
+    // gridLinesOn = !gridLinesOn
     for (let square of squares) {
         square.classList.toggle('gridLines')
     }
